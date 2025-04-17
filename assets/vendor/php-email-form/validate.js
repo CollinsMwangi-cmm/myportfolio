@@ -28,10 +28,14 @@
         headers: { 'X-Requested-With': 'XMLHttpRequest' }
       })
       .then(response => {
+        thisForm.querySelector('.loading').classList.remove('d-block');
         if (response.ok) {
+          thisForm.querySelector('.sent-message').classList.add('d-block');
+          thisForm.reset(); // Reset the form fields
+          thisForm.querySelector('.sent-message').scrollIntoView({ behavior: 'smooth' }); // Scroll to the success message
           return response.text();
         } else {
-          throw new Error(`${response.status} ${response.statusText} ${response.url}`);
+          throw new Error('Form submission failed with status: ' + response.status);
         }
       })
       .then(data => {

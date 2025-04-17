@@ -354,6 +354,13 @@ Contact Section
   background: color-mix(in srgb, var(--accent-color), transparent 25%);
 }
 
+.sent-message {
+  display: none; /* Hide by default */
+}
+
+.sent-message.d-block {
+  display: block; /* Show when the class is added */
+}
 
 /* PHP Email Form Messages
 ------------------------------*/
