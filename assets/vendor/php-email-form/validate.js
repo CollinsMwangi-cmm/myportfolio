@@ -3,7 +3,7 @@
  * URL: https://bootstrapmade.com/php-email-form/
  * Author: BootstrapMade.com
  */
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
   "use strict";
 
   let forms = document.querySelectorAll('.php-email-form');
@@ -15,6 +15,8 @@
       let thisForm = this;
       let action = thisForm.getAttribute('action');
       let recaptcha = thisForm.getAttribute('data-recaptcha-site-key');
+
+      console.log(action); // Debugging line to check action value
 
       if (!action) {
         displayError(thisForm, 'The form action property is not set!');
@@ -82,4 +84,4 @@
     thisForm.querySelector('.error-message').classList.add('d-block');
   }
 
-})();
+});
