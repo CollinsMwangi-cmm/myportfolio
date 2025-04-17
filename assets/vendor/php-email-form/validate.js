@@ -58,20 +58,15 @@ document.addEventListener('DOMContentLoaded', function () {
       headers: { 'X-Requested-With': 'XMLHttpRequest' }
     })
     .then(response => {
-      if (response.ok) {
-        return response.text();
-      } else {
-        throw new Error(`${response.status} ${response.statusText} ${response.url}`);
-      }
-    })
-    .then(data => {
       thisForm.querySelector('.loading').classList.remove('d-block');
       thisForm.querySelector('.error-message').classList.remove('d-block');
-      if (data.trim() === 'OK') {
-        
+
+      if (response.ok) {
+        // If the response is OK, show the success message
         thisForm.querySelector('.sent-message').classList.add('d-block');
       } else {
-        throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action);
+        // If the response is not OK, throw an error
+        throw new Error('Form submission failed. Please try again later.');
       }
     })
     .catch((error) => {
@@ -81,7 +76,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function displayError(thisForm, error) {
     thisForm.querySelector('.loading').classList.remove('d-block');
-    thisForm.querySelector('.error-message').innerHTML = error;
+    thisForm.querySelector('.sent-message').classList.remove('d-block');
+    thisForm.querySelector('.error-message').innerHTML = error.message; // Display the error message
     thisForm.querySelector('.error-message').classList.add('d-block');
   }
 
