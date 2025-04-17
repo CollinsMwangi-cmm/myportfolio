@@ -5,15 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Success - Collins Mwangi Portfolio</title>
     <link rel="stylesheet" href="css/main.css"> <!-- Link to your main CSS file -->
+    <script>
+        function goBack() {
+            window.history.back();
+            location.reload(); // Refresh the page
+        }
+
+        window.onload = function() {
+            document.getElementById('successModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+    </script>
 </head>
 <body class="index-page">
 
-    <div class="container text-center" style="margin-top: 100px;">
-        <div class="sent-message" style="display: block; background: #059652; color: #ffffff; padding: 15px; border-radius: 5px;">
-            Your message has been sent. Thank you!
+    <div id="successModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="sent-message" style="background: #059652; color: #ffffff; padding: 15px; border-radius: 5px;">
+                Your message has been sent. Thank you!
+            </div>
+            <button onclick="goBack()" class="btn btn-primary" style="margin-top: 20px;">Go Back</button>
         </div>
-        <a href="javascript:history.back()" class="btn btn-primary" style="margin-top: 20px;">Go Back</a>
     </div>
+
+    <style>
+        .modal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 
 </body>
 </html>
