@@ -355,7 +355,11 @@ Contact Section
 }
 
 .sent-message {
-  display: none; /* Hide by default */
+  display: block; /* Show by default on success page */
+  background: #059652; /* Green background for success */
+  color: #ffffff; /* White text */
+  padding: 15px; /* Padding */
+  border-radius: 5px; /* Rounded corners */
 }
 
 .sent-message.d-block {
