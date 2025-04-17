@@ -68,6 +68,10 @@
       if (data.trim() === 'OK') {
         thisForm.querySelector('.sent-message').classList.add('d-block');
         thisForm.reset();
+        // Refresh the page after a short delay
+        setTimeout(() => {
+          location.reload(); 
+        }, 2000); 
       } else {
         throw new Error(data || 'Form submission failed');
       }
