@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     .then(data => {
       thisForm.querySelector('.loading').classList.remove('d-block');
+      thisForm.querySelector('.error-message').classList.remove('d-block');
       if (data.trim() === 'OK') {
         // Redirect to the success page
         window.location.href = 'success.html'; // Change to your success page URL
