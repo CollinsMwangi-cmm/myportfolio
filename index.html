@@ -387,41 +387,6 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <script>
-
-
-    document.querySelector('.php-email-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-    
-        // Show loading message
-        document.querySelector('.loading').style.display = 'block';
-    
-        // Perform AJAX request
-        fetch('contact.php', {
-            method: 'POST',
-            body: new FormData(this)
-        })
-        .then(response => {
-            if (response.ok) {
-                // Hide loading message
-                document.querySelector('.loading').style.display = 'none';
-                // Show success message
-                document.querySelector('.sent-message').style.display = 'block';
-                // Clear the form fields
-                this.reset();
-            } else {
-                throw new Error('Network response was not ok.');
-            }
-        })
-        .catch(error => {
-            // Hide loading message
-            document.querySelector('.loading').style.display = 'none';
-            // Show error message
-            document.querySelector('.error-message').innerText = 'There was an error submitting your form. Please try again.';
-            document.querySelector('.error-message').style.display = 'block';
-        });
-    });
-
-
     function toggleTheme() {
         const body = document.body;
         const footer = document.getElementById('footer');

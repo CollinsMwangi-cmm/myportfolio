@@ -354,17 +354,6 @@ Contact Section
   background: color-mix(in srgb, var(--accent-color), transparent 25%);
 }
 
-.sent-message {
-  color: green; /* Change to your preferred success color */
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-.error-message {
-  color: red; /* Change to your preferred error color */
-  font-weight: bold;
-  margin-top: 20px;
-}
 
 /* PHP Email Form Messages
 ------------------------------*/
